@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Use of if else </h2>
+    <h1>welcome to python</h1>
+    <div>
+
+        {% if numb|length > 0 %}
+
+            {% for i in numb %}
+                {% if i > 2  %}
+                  {{i}}
+
+                {% else %}
+                  {{'this odd number'}}
+                {% endif %}
+                
+            {% endfor %}
+        {% else %}
+           {{'empaty'}}
+        {% endif %}
+
+    </div>
+
+    <h1>{{data}}</h1>
+</body>
+</html>

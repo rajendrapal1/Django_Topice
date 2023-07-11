@@ -1,0 +1,35 @@
+
+
+{% extends 'temp/base.html' %}
+
+{% block content %}
+   
+    <h1> <marquee> extend data </marquee></h1>
+    <p id="show"></p>
+    
+
+    <ol>
+        <li>name</li>
+        <li>raj</li>
+        <li>roll</li>
+    </ol>
+
+    <button type="button" id="btn1">addbutton</button>
+    <button type="button" id="btn2">add_paragraf</button>
+
+    <script>
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+            let show=$("p").append("<b> add this paragraf <b> ")
+        
+        });
+        $("#btn2").click(function(){
+            $("ol").append("<li>hellow</li>")
+        })
+       
+
+        })
+
+        
+    </script>
+{% endblock %}   

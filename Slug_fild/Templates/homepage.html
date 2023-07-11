@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    tr td{
+        border: 1px solid;
+    }
+</style>
+<body>
+    <!-- <h2 style="color: brown;background-color:rebeccapurple ;">
+        <marquee onmouseover="stop()" onmouseout="start()">  <a href="/about/{{data.slug_data}}"  </marquee></h2> -->
+
+            
+<h2 style="color: brown;background-color:rebeccapurple ;">
+    <marquee onmouseover="stop()" onmouseout="start()">  {% for i in dt %} <a href="/about/{{i.slug_data}}"  </a> {{i.Fild_title}} {% endfor %}</marquee></h2>        
+        
+
+
+
+
+        <table style="border: 1px solid; background-color: blue; border: 1px solid, ;">
+            <tr>
+                <th>Title</th>
+            <th>Discription</th>
+            </tr>
+            {% for data in dt %}
+            <tr>
+                <td>{{data.Fild_title |safe}}</td>
+                <td>{{data.Fild_Discription|safe}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+  
+    
+    
+</body>
+</html> 

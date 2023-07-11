@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{name}}</title>
+</head>
+<style>
+    table{
+        font-size: 20px;
+        border: 2px solid;
+        background-color: blueviolet;
+    }
+</style>
+<body>
+    <!--list data => student information -->
+
+            {% for i in list %}
+                {{i}} 
+            {% endfor %} 
+            <br>
+            <br>
+
+    <!--dictionary data get -->
+
+    <table border="1",sellpadding='5'>
+        <tr>
+            <th>name</th>
+            <th>Roll</th>
+            <th>marks</th>
+
+        </tr>
+        {% for i in stu_details%}
+            <tr>
+                <td>{{i.name}}</td>
+                <td>{{i.roll}}</td>
+                <td>{{i.marks}}</td>
+            </tr>
+        {%endfor%}    
+    </table>   <br><br>
+
+<!--if else condition -->
+
+   {% if stu_roll|length > 0 %} 
+
+        {% for l in stu_roll %}
+                {% if l > 30 %}
+                    {{l}}
+                {% endif %}
+        {%endfor%}
+
+    {% else %}
+
+       {{'list element are not found'}}    
+
+    {% endif %}    
+    
+        <br><br>
+
+</body>
+</html>

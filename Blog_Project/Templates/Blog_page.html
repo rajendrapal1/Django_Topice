@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  img{
+    height:200px;
+    width: 200px;
+    
+  }
+  button{
+    margin-left: 50px;
+    height: 20px;
+    
+  }
+  
+  
+
+</style>
+<body style="background-color: rgb(73, 102, 102);">
+  <h1 style="background-color: red;text-align: center;">Blog Page </h1>
+<p id="pr">  
+  
+  <!-- <button type="button" id='btn' >
+    <a href="/createpage/">create</a>
+   </button>
+
+   <button type="button" id='btn' >
+    <a href="/eaditpage/">Eadit</a>
+   </button><br><br> -->
+
+  
+    {% for data in dt %}
+     <!-- {{data.id}}<br><br>  -->
+    {{data.Title |safe}}<br><br>
+    {{data.Discription | safe }}<br>
+    <img src="/media/{{data.Img}}" alt=""><br>
+    {{data.release_date | safe }}<br><br>
+
+    
+    <form action="{% url 'Delete_page' data.id  %}" method="POST">
+      {% csrf_token %}    
+
+    <input type="submit" value="Delete">
+    <button type="button" id='btn' >
+      <a href="/createpage/">create</a>
+     </button>
+  
+     <button type="submit" >
+    
+      <a href="/eaditpage/{{data.id}}">Eadit</a>
+     </button><br>
+  
+   </form>
+   <br><br>
+  
+   
+    {% endfor %}
+  
+   
+  </p>
+
+  
+
+</body> 
+</html>

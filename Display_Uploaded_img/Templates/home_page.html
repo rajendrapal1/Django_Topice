@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    img{
+        height: 200px ;
+        color: brown;
+    }
+</style>
+<body>
+    <table border = "1" style="text-align: center;margin-left: 300px;">
+       
+        
+       
+        <tr>
+            <th>Title</th>
+            <th>Discription</th>
+            <th>img</th>
+        </tr>
+        {% for data in dt %}     
+        <tr>
+           <td>{{data.Title}}</td>
+           <td>{{data.Discription|safe}}</td>
+           <td id="img" ><img src="/media/{{data.field_name}}" alt=""></td>
+        </tr>
+        {% endfor %}
+        
+        
+     </table>
+</body>
+</html>
