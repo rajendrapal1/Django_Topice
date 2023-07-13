@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    dt{
+        height: 50px;
+        background-color: red;
+
+    }
+    h1{
+        background-color: rgb(0, 72, 255);
+        text-align: center ;
+        margin-top: 0px;
+        background-image:radial-gradient(red,rgb(77, 77, 90),green);
+        border-radius: 10px ;
+    }
+
+
+
+    form{
+        background-color: rgb(181, 191, 210);
+        border: 2px solid;
+        margin-right: 500px;
+        margin-left: 500px;
+
+        text-align: center;
+        margin-top: px;
+        padding-top: 40px;
+        padding-bottom: 50px;
+        border-radius: 20px;
+    }
+</style>
+
+
+
+</style>
+<body>
+    
+    <h1>Login Page</h1>
+    <form method="post">
+        {% csrf_token %}
+        <h3><i><u>Login Page </i></u></h3><br>
+
+        {% if DT.non_field_errors %}
+        {% for error in DT.non_field_errors %}
+            <p style="background-color: red ;
+             background-color: blue; text-align: center;">{{ error }}</p>
+        {% endfor %}
+        {% endif %}
+
+        
+        {% csrf_token %}
+        {% for fm in DT %}
+        <ul>
+        <li>
+        {{fm.label}} {{fm}} {{fm.errors|striptags}}<br><br>
+        </li>
+        </ul>
+        {% endfor %}
+
+        {% if messages %}
+        
+            {% for message in messages %}
+            {% if message.tags %} {{ message.tags }} {% endif %} {{ message }}
+            {% endfor %}
+        
+        {% endif %} 
+        
+        <input type="submit" name="Login" style=" margin-left:40px; margin-bottom: 9px; margin-top: 5px;">
+        <a href="{% url 'signup' %}" style="margin-left: 0px;border: 1px solid;padding-left: 5px; border-radius: 4px;" >signup</a>
+        <a href="{% url 'changepass' %}" style="margin-left: 0px;border: 1px solid;padding-left: 5px;border-radius: 4px ;" >change password</a>
+    </form>
+   
+</body>
+</html>

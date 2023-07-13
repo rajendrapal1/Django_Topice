@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    form{
+        background-color: rgb(181, 191, 210);
+        border: 2px solid;
+        margin-right: 500px;
+        margin-left: 500px;
+
+        text-align: center;
+        margin-top: 30px;
+        padding-top: 10px;
+        padding-bottom: 50px;
+        border-radius: 20px;
+
+    }
+</style>
+<body>
+    <!-- <h1 style="background-color: blue; text-align: center;">change password</h1> -->
+    
+     <form method="post">{% csrf_token %}
+        <h3><i><u>change password</i></u></h3><br>
+        
+        
+        {% if dt.non_field_errors %}
+        {% for ch in dt.non_field_errors %} {{ch}} {% endfor %}
+        {% endif %}
+
+    
+        {% for ch in dt %}
+        {{ ch.label_tag }} {{ch}} {{ch.errors|striptags }}<br><br>
+        {% endfor %}
+
+        <input type="submit" name="submit">
+        <a href="{% url 'signup' %}">signup page</a>
+     </form>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style >
+    form{
+        background-color: rgb(132, 134, 137);
+        border: 2px solid;
+        margin-right: 500px;
+        text-align: center;
+        margin-top: 20px;
+        padding-top: 40px;
+        padding-bottom: 50px;
+        border-radius: 20px;
+    }
+</style>
+<body style="margin-left: 500px;color: rgb(1, 16, 16);">
+    <!-- <h2 style="text-align: center; background-color: cornflowerblue; margin-left: 2px;">Signup Forms </h2> -->
+    <form method="POST">
+     {% csrf_token %}
+     <h3><i><u>Signup Page </i></u></h3><br>
+     
+     {% for fm in dt %}
+     {{fm.label}} {{fm}} {{fm.errors|striptags}}<br><br>
+     {% endfor %}<br>
+    <input type="submit" name="submit"><br>
+    {% if messages %}
+        
+            {% for message in messages %}
+            {% if message.tags %}  {% endif %} {{ message }}
+            {% endfor %}
+        
+    {% endif %} 
+    
+    <a href="{% url 'login' %}" >login</a>
+    </form>
+    
+</body>
+</html>
