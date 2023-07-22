@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="Posr">
+        <h1>dasboard</h1>
+        {{name}}
+        {% csrf_token %}
+
+        {% if perms.Apps.delete_blog %}
+
+        <h3 style="background-color: red;">Use have permition for delete data </h3><br>
+         <input type="button" name="delete" value="delete">
+
+        {% else %}
+          <h4 style="background-color: blue;">no permistions of add </h4>
+
+        {% endif %}
+        <br>
+        
+
+
+        <!-- {% if perms.Apps.add_blog %}
+    
+        <input type="button" name="add" value="add_button">
+        <h2>you can add data</h2>
+        {% else %}
+        <h2 style="background-color: blue;">you can not delete data</h2>
+        {% endif %}  -->
+
+            <br><br>
+            <input type="submit" >
+        <a href="{% url 'logout' %}"><br><br>logout</a><br><br>
+        
+         
+         <input type="button" name="ubdate" value="ubdate">
+        <input type="button" name="views" value="views"> -->
+    </form>
+</body>
+</html>
